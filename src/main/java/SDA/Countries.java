@@ -1,10 +1,11 @@
 package SDA;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Countries {
 
-    private TreeSet<Country> countySet = new TreeSet<>();
+    private Set<Country> countySet = new HashSet<>();
 
     public Country getCountry(String name){
 
@@ -36,9 +37,17 @@ public class Countries {
         }
     }
 
-    public void getCountriesSortedBy(Comparator<Country> comparator){
+    public void getCountriesSortedBy(Sort sort){
+//        countySet.stream()
+//                .sorted(comparator)
+//                .collect(Collectors.toList())
+//                .forEach(System.out::println);
 
-        for (Country country : countySet){
+
+        Set<Country> set = new TreeSet<>(sort.getComparator());
+        set.addAll(countySet);
+
+        for (Country country : set){
             System.out.println(country);
         }
 

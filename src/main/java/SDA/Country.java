@@ -52,4 +52,11 @@ public class Country implements Comparable{
     public int compareTo(Object o) {
         return 0;
     }
+
+    public Country(String name, String state, int count, User president) {
+        this.name = name;
+        this.state = state;
+        this.count = count;
+        this.president = president;
+    }
 }
